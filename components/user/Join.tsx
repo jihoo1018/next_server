@@ -1,7 +1,7 @@
 const Join: React.FC = () => 
     (<>
         <h2>회원가입</h2>
-        <form action="/send-data-here" method="post">
+        <form method="post">
         <label htmlFor="email">Email:</label>
         <input type="text" id="email" name="email" minLength={4} maxLength={20} required/>
         <label htmlFor="nickname">Nickname:</label>
