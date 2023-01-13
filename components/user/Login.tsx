@@ -1,13 +1,15 @@
+import { onProps } from "@/modules/types";
 
-export default function Login(){
+export default function Login({onChange, onSubmit}: onProps){
 
     return (
        <> <h1>로그인</h1>
-        <form action="/send-data-here" method="post">
-        <label htmlFor="first">User_id:</label>
-        <input type="text" id="user_id" name="user_id" />
+        <form onSubmit={onSubmit}>
+        <label htmlFor="first">Email:</label>
+        <input type="text" id="email" name="email"
+        onChange={onChange} required minLength= {10} maxLength={20}/>
         <label htmlFor="last">Password:</label>
-        <input type="text" id="password" name="password" />
+        <input type="text" id="password" name="password" onChange={onChange} />
         <button type="submit">Submit</button>
       </form>
       </>
