@@ -7,7 +7,7 @@ import { User } from '@/modules/types';
 import { user } from '@/modules/apis/userApi';
 // api 
 
-export function* watchJoin(){
+export function* watchAdd(){
     yield takeLatest(joinRequest, (action: {payload: User}) => {
         
         try{
@@ -19,16 +19,3 @@ export function* watchJoin(){
         }
     })
 }
-export function* watchLogin(){
-    yield takeLatest(loginRequest, (action: {payload: User}) => {
-        
-        try{
-            const response: any = user.login(action.payload)
-            put(loginSuccess({data: response.data}))
-            window.location.href = '/loginHome'
-        }catch(error){
-            put(userAction.joinFailure(error))
-        }
-    })
-}
-

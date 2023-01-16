@@ -2,12 +2,19 @@ import {context} from '@/components/admin/enums'
 import { currentTime } from '@/components/admin/utils'
 import axios, {AxiosResponse} from 'axios'
 export interface UserType{
-    user_id : string
-    email : string
-    nickname : string
-    password : string
-    create_at: string
-    updated_at: string
+    user_id? : string,
+    email? : string,
+    password? : string,
+    cpassword?: string, 
+    username? : string,
+    phone? : string,
+    birth? : string,
+    address? : string,
+    job? : string,
+    interests? : string,
+    token? : string
+    created? : string,
+    modified? : string
 }
 
 export const joinApi = async (payload:{email:string, 

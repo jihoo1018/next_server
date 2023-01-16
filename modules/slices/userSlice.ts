@@ -6,21 +6,27 @@ type UserState = {
     status: 'idle' | 'loading' | 'failed'
     isLoggined: boolean
     error: any
+    token: string
+
 }
+
+
 const initialState: UserState = {
-    data: [],
+    data: [{"user_id":"kim"}],
     status: 'idle',
     isLoggined: false,
-    error: null
+    error: null,
+    token: ''
 }
 
 const userSlice = createSlice({
     name: 'userSlice',
     initialState,
     reducers: {
-        joinRequest(state: UserState,  action: PayloadAction<User>){
+        joinRequest(state: UserState, action: PayloadAction<User>){
             alert(`2 joinRequest ${JSON.stringify(action.payload)}`)
             state.status = 'loading'
+            state.error = null
         },
         joinSuccess(state: UserState, {payload}){
             state.status = 'idle'
@@ -31,9 +37,11 @@ const userSlice = createSlice({
             state.data = [...state.data, payload]
         },
         loginRequest(state: UserState, _payload){
+            alert(`2 loginRequest ${JSON.stringify(_payload)}`)
             state.status = 'loading'
         },
         loginSuccess(state: UserState, {payload}){
+            alert(`loginSuccess >>>> payload is ${payload}`)
             state.status = 'idle'
             state.data = [...state.data, payload]
         },

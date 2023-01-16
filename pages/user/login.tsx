@@ -16,7 +16,7 @@ const LoginPage: NextPage = function(){
     }
     const onSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        alert(`정보: ${JSON.stringify(loginInfo)}`)
+   
         dispatch(loginRequest(loginInfo))
     }
     return (

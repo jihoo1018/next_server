@@ -3,7 +3,13 @@ export interface User{
     email? : string,
     password? : string,
     cpassword?: string, 
-    nickname? : string,
-    create_at? : string,
-    updated_at? : string
+    username? : string,
+    phone? : string,
+    birth? : string,
+    address? : string,
+    job? : string,
+    interests? : string,
+    token? : string
+    created? : string,
+    modified? : string
 }
