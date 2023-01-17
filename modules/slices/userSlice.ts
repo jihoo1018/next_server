@@ -1,5 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { User } from '@/modules/types'
+import { User, UserLoginInput} from '@/modules/types'
+import { AppState } from "../store";
+import { createSelector } from '@reduxjs/toolkit'; 
 
 type UserState = {
     data: User[]
@@ -12,15 +14,15 @@ type UserState = {
 
 
 const initialState: UserState = {
-    data: [{"user_id":"kim"}],
+    data: [],
     status: 'idle',
     isLoggined: false,
     error: null,
-    token: ''
+    token: 'original'
 }
 
 const userSlice = createSlice({
-    name: 'userSlice',
+    name: 'user',
     initialState,
     reducers: {
         joinRequest(state: UserState, action: PayloadAction<User>){
@@ -36,14 +38,16 @@ const userSlice = createSlice({
             state.status = 'failed'
             state.data = [...state.data, payload]
         },
-        loginRequest(state: UserState, _payload){
-            alert(`2 loginRequest ${JSON.stringify(_payload)}`)
+        loginRequest(state: UserState, action: PayloadAction<UserLoginInput>){
+            alert(`1. ${JSON.stringify(action.payload)}`)
             state.status = 'loading'
         },
         loginSuccess(state: UserState, {payload}){
-            alert(`loginSuccess >>>> payload is ${payload}`)
+            alert(`4. token >>>> payload is ${payload.token}`)
             state.status = 'idle'
             state.data = [...state.data, payload]
+            state.token = payload.token
+            alert(`5. &&&&&&token >>> state.token is ${state.token}`)
         },
         loginFailure(state: UserState, {payload}){
             state.status = 'failed'
