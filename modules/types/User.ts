@@ -18,3 +18,11 @@ export interface UserLoginInput{
     email: string,
     password: string
 }
+
+export interface UserUpdate{
+    user_id?: string,
+    phone?: string,
+    job?: string,
+    interests?: string,
+    modified?: string
+}

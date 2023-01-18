@@ -24,24 +24,24 @@ const [user, setUser] = useState({
   /**const [token, setToken] = useState('')*/
 //const userData: string = useSelector(userSelector)
 //const result: string = useAppSelector((state: AppState) => state.user.token || 'tess')
-useEffect(()=>{
-  alert(`6. session is ${localStorage.getItem("session")}`)
-  const session:{
-    user_id : '',
-    email : '',
-    password : '',
-    username : '',
-    phone : '',
-    birth : '',
-    address : '',
-    job : '',
-    interests : '',
-    token : '',
-    created : '',
-    modified : ''
-  } = JSON.parse(localStorage.getItem("session")||'{}')
-  setUser(session)
-},[])
+// useEffect(()=>{
+//   alert(`6. session is ${localStorage.getItem("session")}`)
+//   const session:{
+//     user_id : '',
+//     email : '',
+//     password : '',
+//     username : '',
+//     phone : '',
+//     birth : '',
+//     address : '',
+//     job : '',
+//     interests : '',
+//     token : '',
+//     created : '',
+//     modified : ''
+//   } = JSON.parse(localStorage.getItem("session")||'{}')
+//   setUser(session)
+// },[])
 
 return (<>
     <Sheet >

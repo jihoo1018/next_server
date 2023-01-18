@@ -2,7 +2,7 @@ import type { ReactElement, ReactNode } from 'react'
 import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 import {wrapper} from '@/modules/store'
-import { Navbar, Footer } from '@/components/admin'
+import {Footer, Header } from '@/components/admin'
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps: {...pageProps} }: AppProps) {
         <thead style={{ height: "20%",  border: "1px solid black"}}>
             <tr >
                 <td style={{ width: "100%", border: "1px solid black"}} colSpan={2}>
-                <Navbar/>
+                <Header/>
                 </td>
             </tr>
         </thead>
