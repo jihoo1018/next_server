@@ -31,14 +31,15 @@ export const user = {
             const data = response.data
             localStorage.setItem("session", data.msg)
             alert(`API: 스토리지에 저장된 토큰 ${localStorage.getItem("session")}`)
-            return response.data
+            return data.msg
         }catch(err){
             return err;
         }
     },
-    async logout(){
+    async logout(payload:User){
         try{
-            await client.post('/user/logout')
+            const response : AxiosResponse = await client.post('/user/logout', payload)
+            return response.data
         } catch(err){
             console.log(err)
             return err;
